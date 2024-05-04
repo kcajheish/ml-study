@@ -139,3 +139,35 @@ Representation
         - bad feature
         - duplication
         - empty value
+- feature crosses
+    - use linear model to predict non-linear behavior
+        - Set $x_3 = x_2*x_1$
+        - Then we have model
+        $$
+            y = b + w_1x_1 + w_2x_2 + w_3x_3
+        $$
+    - why not non-linear model?
+        - it's efficient to train large dataset with linear model
+    - what do feature crosses look like?
+    ```
+    binned_latitude(lat) = [
+        0  < lat <= 10
+        10 < lat <= 20
+        20 < lat <= 30
+    ]
+
+    binned_longitude(lon) = [
+        0  < lon <= 15
+        15 < lon <= 30
+    ]
+
+    binned_latitude_X_longitude(lat, lon) = [
+        0  < lat <= 10 AND 0  < lon <= 15
+        0  < lat <= 10 AND 15 < lon <= 30
+        10 < lat <= 20 AND 0  < lon <= 15
+        10 < lat <= 20 AND 15 < lon <= 30
+        20 < lat <= 30 AND 0  < lon <= 15
+        20 < lat <= 30 AND 15 < lon <= 30
+    ]
+    ```
+
