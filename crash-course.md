@@ -55,6 +55,18 @@ Hyperparameter
     - gradully reduce batch size
     - reduce batch size if data can't be fit in memory at once
 
+Overfit
+- Complicated model is bad at prediction
+    - Keep your model as simple as possible
+- Divide our data into test set and training set
+    - It doesn't make sense to train our model with infinite data.
+    - Note that
+        - data should be draw randomly
+        - distribution shouldn't change over time
+        - we draw data from the same distribution
+- We need another split for evaluation set
+    - If we update model based on the result of test set alone, this introduces bias.
+
 Correlation matrix shows which feature has most impact on prediction.
     - training_df.corr()
     - Correlation value shows predicative power of a feature. The larger the absolute value, the more impacts it has on prediction.
