@@ -93,12 +93,18 @@ Validation set
 
 Representation
 - Feature engineering
-    - Extract feature from multiple data sources.
-- To have good feature
+    - feature vector
+        - Extract feature from multiple data sources.
+- hot encoding
+    - assign a number to the string; create a feature vector based on those numbers
+        - e.g. "Main stree" has code of 1. -> [0, 0, ..., 1, ...]
     - one hot encoding
-        - assign a number to the string; create a feature vector based on those numbers
-            - e.g. "Main stree" has code of 1.
-    - non zero feature should appear sometimes
+        - one 1 in the vector
+    - multi-hot encoding
+        - multiple 1 in the vector
+    - use sparse vector when vector size reaches 1 million
+- To have good feature
+    - Avoid rarely used value
         - e.g. my_device_id is a bad feature
     - obvious meaning
         - e.g. use year over second to represent age
@@ -108,8 +114,28 @@ Representation
             - good: watch_time_is_defined = false
     - feature shouldn't change over time
     - get rid of outlier
-    - divide your data into mulitple bin over a feature before you train
-- to know your data
-    - debug
-    - visualize
-    - monitor
+- scale
+    - turn feature value into [-1, 1]
+    - pro
+        - model converges quickly
+        - avoid NaN
+            - value exceeds floating point precision
+        - model learns each feature with equal efforts
+- handle outlier
+    - tail in the histogram could be outlier
+    - possible solution
+        - take log
+        - cap a threshold
+        - note that both didn't ignore the outlier but rather let model learn too much from the outlier.
+- bin
+    - feature doesn't scale linearly with label; instead their relationship is discrete.
+        - e.g. latitude vs number of house
+    - Thus, a vector of bins can represent this feature
+        - e.g. [1, 0] north pole has one house but south pole doesn't
+- scrub
+    - visualize data with histogram
+    - remove bad example
+        - mislabel
+        - bad feature
+        - duplication
+        - empty value
