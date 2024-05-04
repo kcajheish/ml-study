@@ -1,3 +1,60 @@
+Model
+$$
+y = b_0 + \sum_{i=1}^{N}{w_i}{x_i}
+$$
+- b: bias
+- y: inference; label
+- w: weight
+- x: feature
+
+MSE, mean square error
+- loss over entire data set
+$$
+MSE = {{1 \over{N}} \sum_{x, y}(y-prediction(x))^2 }
+$$
+- N: number of data in the dataset
+- x: feature
+- y: label
+
+Iterative learning
+- Learn from loss by feeding the data to model, update model parameters, and repeat.
+    - loss will gradually converges.
+- how to update? -> gradient descent
+    - given a set of w and b
+    - calculate gradient of loss at w,b
+        - gradient: partial derivative with all independent variables
+    - multiply negative gradient vector with learning rate
+        - loss oscillates when learning rate is large
+        - loss vs epoch never converges if learning rate is too low.
+    - add value to w, b
+
+Stochastic Gradient descent
+- feed the model with a batch of example
+    - pro: reduce computation cost to reach next w, b
+    - con: result can be noisy
+- thus in practice, we use mini-batch
+    - usually from 10 to 1000 examples
+    - pro: less noisy while keep computation cost low
+
+Epoch
+- model is trained over entired dataset
+- by having more epoch, mode may be converged.
+$$
+{1\ epoch} = {N\over{batch\ size}}\ iterations \\
+$$
+
+Hyperparameter
+- learning rate, batch size, epoc
+- we tune them so that loss converges
+- rule
+    - if loss decreases slowly, increase learning rate
+    - if loss doesn't converge(see noise)
+        1. decrease learning rate
+        2. increase epoch
+        3. increase batch size
+    - gradully reduce batch size
+    - reduce batch size if data can't be fit in memory at once
+
 Correlation matrix shows which feature has most impact on prediction.
     - training_df.corr()
     - Correlation value shows predicative power of a feature. The larger the absolute value, the more impacts it has on prediction.
