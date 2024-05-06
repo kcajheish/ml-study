@@ -171,3 +171,24 @@ Representation
     ]
     ```
 
+
+Generalization curve shows loss(iteration) for both training and validation set.
+- You can observe overfit if training loss decreases but validation loss increases. This is because the model is complex and we try to fit outlier.
+- Thus, loss alone can not describe the quality of prediction. We have to account for model complexity.
+
+Regularization describes complexity of the model. The parameters of the complexity can be:
+1. weight
+2. number of feature with non-zero weight
+
+$L_2$ regularization describes model complexity with sum of $weight^2$
+- The larger the absolute value, the more complex the model is.
+- To minimize it,
+    - weight is zero
+    - the mean of weights is zero
+
+Lambda can be included in regularization term.
+- $Loss + \lambda\ complexity(model)$
+    - The larger the lambda is, the simpler the model is
+        - For a simple model, weight histogram has bell-shaped or Gaussian.
+        - for a complex model, weight historgram has flat distribution
+- note that if lambda is too large, the model may underfit the training data
