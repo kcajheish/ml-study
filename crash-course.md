@@ -267,3 +267,28 @@ AUC(area under receiver operating characteristic curve)
     - con
         - you can't tune threshold based on AUC
         - you can't calibrate output
+
+Prediction bias
+- def
+    $$
+    prediction\ bias = {average\ of\ prediction} - {average\ of\ labels\ in\ dataset}
+    $$
+    - e.g. Model predicts 20% emails are spam. Actually it's 1%. We have 19% prediction bias
+- what leads to large bias
+    - incomplete data set
+        - didn't predict house pricing with population and number of houses
+    - overly regularization
+        - We put less emphasis on the critical feature in high dimension
+    - noisy data set
+        - predict body health with the sensor that measures body temperature. But that sensor is placed under the sun.
+    - biased training dataset
+        - only use rainfall in Feb to predict rainfall in the March.
+    - buggy pipeline
+- avoid calibrating prediction with bias
+    - fix the cause, not the symptonm
+- bucketing
+    - why? An example alone can't make bias meaningful
+        - Have a lucky prediction that fit the label
+    - group examples by
+        - splitting prediction linearly or in quantile
+    - with bucketing, you can tell some part of the predictions is better than the other
