@@ -232,3 +232,17 @@ Classification
     - con
         - doesn't work for class-imbalanced dataset
             - e.g. 99 out of 100 examples are malignant. A model that always predict malignant will achieve 99% accuracy.
+- Precision
+    - portion of positive that is correct
+    $$
+        Precision = {TP \over {TP + FP}}
+    $$
+- Recall
+    - portion of actual positive that is predicted
+    $$
+        Recall = {TP \over {TP + FN}}
+    $$
+- Often you can't have both high precision and recall
+    1. You set high threshold. Classification model is not likely to report spam that isn't but a lot of spams are treated as not spam. Thus, you have high precision but low recall.
+    2. You set low threshold. Then you have low precision but high recall.
+
