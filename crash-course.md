@@ -192,3 +192,14 @@ Lambda can be included in regularization term.
         - For a simple model, weight histogram has bell-shaped or Gaussian.
         - for a complex model, weight historgram has flat distribution
 - note that if lambda is too large, the model may underfit the training data
+
+We may predict probability that an event happens. Thus, logistic regression is used.
+- To ensure output of model is between 0 and 1, use sigmoid function
+    - $y^{'} = {1\ \over 1 + e^{-z}}$
+        - y: probability
+        - $z = b + w_0 x_0 + w_1 x_1+...+ w_n x_n$
+        - log odd
+            - $z = {\log{y\over(1-y)}}$
+
+loss of logistic regression
+- tbc
