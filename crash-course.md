@@ -246,3 +246,24 @@ Classification
     1. You set high threshold. Classification model is not likely to report spam that isn't but a lot of spams are treated as not spam. Thus, you have high precision but low recall.
     2. You set low threshold. Then you have low precision but high recall.
 
+ROC(receiver operating characteristic curve)
+- true positive rate(TPR)
+    - portion of true positive among all the actual positive
+    $$
+    TPR = {TP \over {TP + FN}}
+    $$
+- false positve rate(FPR)
+    - portion of false positive among all negative
+    $$
+    FPR = {FP \over {FP+TN}}
+    $$
+
+AUC(area under receiver operating characteristic curve)
+- TPR vs FPR
+- probability that output of positive sits at the right of negative
+    - imagine your model has 100% accuracy; ROC is fully covered, and thus the probability is one.
+- the aggregated area is independent of scale of output and threshold
+    - i.e. intrinsic property of dataset
+    - con
+        - you can't tune threshold based on AUC
+        - you can't calibrate output
