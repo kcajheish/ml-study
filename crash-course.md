@@ -221,3 +221,14 @@ Classification
             - whether an event occurs or not
         - true/false
             - whether model predicts outcome correctly or not
+- Accuracy is used to evaluate classification model
+    - percentage of correct predictions
+        $$
+        \begin{align}
+            &= {{number\ of\ correct\ predictions}\over{number\ of\ total\ predictions}} \\
+            &={{TP + TN}\over{TP+FP+TN+FN}}
+        \end{align}
+        $$
+    - con
+        - doesn't work for class-imbalanced dataset
+            - e.g. 99 out of 100 examples are malignant. A model that always predict malignant will achieve 99% accuracy.
