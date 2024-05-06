@@ -203,3 +203,21 @@ We may predict probability that an event happens. Thus, logistic regression is u
 
 loss of logistic regression
 - tbc
+
+Classification
+- a classification threshold turns a probability into binary value
+    - e.g. Let the threshold be 0.6, then 0.9 predicted by logistic regression means a spam.
+- confusion matrix
+    - true positive
+        - e.g. wolf is coming and shepherd alerts
+    - false positive
+        - e.g. wolf is not coming and shepherd alerts
+    - true negative
+        - e.g. wolf is comming but shepherd doesn't alert
+    - false negative
+        - e.g. wold is not coming but shepherd alerts
+    - note
+        - positive/negative
+            - whether an event occurs or not
+        - true/false
+            - whether model predicts outcome correctly or not
