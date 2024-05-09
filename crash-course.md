@@ -292,3 +292,42 @@ Prediction bias
     - group examples by
         - splitting prediction linearly or in quantile
     - with bucketing, you can tell some part of the predictions is better than the other
+
+# Neural Network: Structure
+
+linear model can't predict nonlinear classification problem. Use neural network for complicated nonlinear problem.
+
+Neural layer
+- each node in a layer connects to the below layer
+    - relationship are defined by a set of weight and bias from the node underneath
+A model can  be seen as graph
+- output
+    - connected by input or hidden layer
+- hidden layer
+    - connected by input or other hidden layer
+- input
+    - feature
+- activation function
+    - non linear function that takes weighted sum as input
+    - type
+        - sigmoid
+        $$
+            1\over{1+e^{-x}}
+        $$
+        - ReLU(rectified linear unit)
+            - max(0, x)
+        - $\sigma(\mathbf{wx}+b)$
+            - any other function; check out Module: tf.nn for more details
+
+back propagation
+- given output of the model, calculate error and its derivative with respect to
+    1. $y_{out}$
+    2. $x_j$: node input
+    3. $w_{ij}$: weight link to the node
+    4. $y_i$: previous node output
+- error
+    - $(y_{out}-y_{target})^2$
+- use dynamic programming to remember these derivatives; they are needed in the next iteration
+
+forward propagation
+- given input, calculate output based on activation function of the node
