@@ -361,3 +361,71 @@ softmax
 
 If you have many labels in one example, software may not be used
 - e.g. we like to find the image with apples in a bowl
+
+# Embedding
+Collaborative filtering
+- intuition: if two users watch the same movie, they can have similar interests
+- def: predict interests of a user based on interests of other users
+
+low dimensional space
+- determine whether movies are close
+
+arrange movie in two dimensional space
+- e.g. adult vs bluck
+
+embedded space
+- express feature in a set of coordinates
+- the distance between the point in space shows how close two examples are
+
+latent dimension
+- value on the dimension is infered from actual data
+
+categorical data
+- pick few items from the choices
+- e.g. [0, 1, 0, 0] -> user only watched second movie
+
+sparse tensor
+- a vector with very fiew non-zero entry
+- e.g. [1, 3, 999]
+    - user view no. 1, no. 3, no. 999 movies
+
+one hot encoding
+- use index of the vector to represent an entity
+- e.g. [0, 1, 0]
+    - the second vocabulary in the list appears in the setence
+
+one node per word
+- Node retrieves a word from a setence/document and output it
+- return sparse input vector
+
+
+The more weight your model has
+1. the more data you need to train your model
+2. the more computation you need
+    - why?
+        - imagine a first layer with N node and input with M volcabulary
+        - you need $M*N$
+
+embedding
+- Translate large sparse vector into low dimensional space
+    - You can't tell relationship between two sparse vectors because index is discrete and is determined randomly.
+- why?
+    - it's easy for us to find the relationship embedding and thus the pattern for your data
+- we like to keep dimension in the embedding small so that trainning can be completed quickly.
+
+principal component analysis
+- given a bag of vectors of words, collapse dimensions(words) with similar semantic into one
+
+distributional hypothesis
+- words that appear in neighbor have similar semantic
+
+[word2vec](https://www.tensorflow.org/text/tutorials/word2vec)
+- (tbc)how to find embedding?
+    1. turn a sentence into sparse vector
+        - e.g. "plan can fly"
+    2. create a false sentence by randomly substitute a word
+        - e.g. "cat can fly"
+    3. pass those sparse vector through first layer with low dimensions and find the weight for each link to the dimensions
+        - based on weight, we can tell how close two words are
+    4. use those weight to map your data into the embedding space
+- note that you can also train embedding as part of the model
