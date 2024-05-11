@@ -331,3 +331,33 @@ back propagation
 
 forward propagation
 - given input, calculate output based on activation function of the node
+
+Backpropogation could go wrong(tbc)
+- vanishing gradient
+    - gradient in the low layer is small
+    - sol: ReLU activation functio
+- exploding gradient
+    -  gradient in lower layer is too large
+    - sol
+        - batch normalization
+        - lower learning rate
+- dead ReLU units
+    - the weighted sum of ReLU falls below zero
+    - sol
+        - lower learning rate
+dropoout(tbc)
+- throw away activations in single gradient step
+
+softmax
+- assign each class with a probability; the sum of probability must add up to 1
+- softmax layer is put before output layer
+    - number of nodes in softmax = number of node in output
+- option
+    - full softmax
+        - con
+            - slow when number of class increases
+    - candidate sampling
+        - e.g. we don't have to provide probability for non-dog class if we look for husky image
+
+If you have many labels in one example, software may not be used
+- e.g. we like to find the image with apples in a bowl
