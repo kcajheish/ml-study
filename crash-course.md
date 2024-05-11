@@ -438,3 +438,15 @@ There are more to machine learning model for a production system
     - extraction
 2. serving infrastructure
 3. monitoring and operation
+
+dynamic training
+- train your model as data stream comes
+    - model prediction is update to date
+    - need to monitor input data at inference time
+    - need to monitor training job
+
+static training
+- model is trained offline
+    - need to monitor input data
+    - little monitor on training task
+        - we only care about the result of prediction
