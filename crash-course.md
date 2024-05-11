@@ -429,3 +429,12 @@ distributional hypothesis
         - based on weight, we can tell how close two words are
     4. use those weight to map your data into the embedding space
 - note that you can also train embedding as part of the model
+
+# ML engineering
+There are more to machine learning model for a production system
+1. input data
+    - collection
+    - verification
+    - extraction
+2. serving infrastructure
+3. monitoring and operation
