@@ -457,6 +457,23 @@ online inference
 offline inference
 - predict in a batch and store result in data storage for lookup
 
+dependency
+- reliability
+    - signal always available
+    - maybe include a feature that shows signal is not available
+- versioning
+    - signal change over time
+    - use version number
+- necessity
+    - does adding extra features outweight benefit?
+        - cost of maintenance vs accuracy
+- correlation
+    - are signals tied together
+    - add randomness to your signal
+- feedback loop
+    - output of the model affects input feature
+    - need to monitor the input
+
 guideline
 - keep first model simple
     - e.g. linear over non-linear model
