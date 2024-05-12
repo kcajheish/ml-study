@@ -457,6 +457,55 @@ online inference
 offline inference
 - predict in a batch and store result in data storage for lookup
 
+fairness
+- we should evaluate bias before deploying model into production
+- bias
+    - report bias
+        - frequency of the events doesn't reflect the real world
+            - e.g. banana -> yellow banana
+    - selecting bias
+        - data doesn't reflect real-world distribution
+        - type
+            - sampling: randomization is not included in data collection
+                - e.g. pick enthusiastic customer data to predict future sales
+            - coverage: doesn't cover wide range of spectrum
+                - e.g. only used sales data in hot season
+            - nonresponse bias: data collected differs from those that are not
+                - e.g. product haters refuse to participate for the survey
+    - overgeneralization
+        - conclude based on limited information
+    - out-group homogeneity bias
+        - things which are outside the group look all the same
+        - e.g. We tend to think countries in Africa is poor
+    - confirmation bias
+        - search for evidence that algins with own belief
+    - automation bias
+        - preference for automated system over non-automated system
+            - have to consider error rate for each
+- how to achieve fairness
+    - assumption that you make and what is overlooked in the problem
+    - model takes bias into consideration
+    - does the prediction overgeneralizing?
+    - in what context can your system be used?
+- sign of bias
+    - missing value in a large amount of examples
+    - unexpected feature values
+        - e.g. we like to predict house price in asia but the data in europe are included as well.
+    - data skew
+        - select data in north of taiwan for training and predict the house price in taiwan.
+- evaluate bias
+    - step
+        - break your dataset into various groups
+        - calculate precision, recall for each group
+        - find the error
+    - e.g.
+        1. 10 out of 11 prediction is true
+            - precision = 90.9%
+            - error = 100% - 90.9% = 9.1%
+        2. 10 out of 11 actul label is predicted
+            - recall = 90.9 %
+            - error = 9.1%
+
 dependency
 - reliability
     - signal always available
