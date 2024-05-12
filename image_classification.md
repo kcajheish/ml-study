@@ -38,8 +38,8 @@ implication of more filters
 ReLU is applied to convolved feature
 - model has nonlinearity
 
-polling downsample the convolved features
-- max polling
+pooling downsample the convolved features
+- max pooling
     - slide a tiles over the feature map
     - extract the max from the tile
     - output max value to the new feature map
