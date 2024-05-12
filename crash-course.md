@@ -450,3 +450,13 @@ static training
     - need to monitor input data
     - little monitor on training task
         - we only care about the result of prediction
+
+guideline
+- keep first model simple
+    - e.g. linear over non-linear model
+- monitor input feature
+- keep model configuration as code
+    - review it and check it
+- data pipeline correctness
+- metric for training and evaluation
+- write down result
