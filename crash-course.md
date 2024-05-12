@@ -451,6 +451,12 @@ static training
     - little monitor on training task
         - we only care about the result of prediction
 
+online inference
+- predict on demand using a server
+
+offline inference
+- predict in a batch and store result in data storage for lookup
+
 guideline
 - keep first model simple
     - e.g. linear over non-linear model
