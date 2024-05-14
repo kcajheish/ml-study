@@ -108,3 +108,9 @@ _________________________________________________________________
     - sparsity
         - downstream layer only output what is important
             - e.g. you see contour of the animal without background object
+
+pretained model
+- goal
+    - Training CNN with large dataset takes a lot of time. We like to speed it up
+    - Use model that has been trained
+- With trained model, generate output that has high level feature(color, texture, contour...etc) and then feed those output to your own model
