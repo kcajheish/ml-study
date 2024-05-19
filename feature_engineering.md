@@ -126,3 +126,23 @@ use hash to create vocabulary
 hybrid approach(vocabulary + hashing)
 - build up vocabulary for common data
 - use hashing for data that keep changing
+
+# Randomization
+flaw of random split
+- Model learns from information that is not available at prediction time
+
+Split data by time
+- By having latest data as testing and evaluation set, we simulate online behavior of the data
+- e.g.
+    1. collect 30 days of data
+    2. model was trained on 1-29 days of data
+    3. evaluate data on 30 day
+
+the data you generate should be deterministic
+1. random number generator(RNGs)
+    - given seed, same values are generated in the same order
+2. hash value
+    - hash function output won't change given the same input
+
+Problem with hash
+- Either include or exclude the data from training. Data that are included in evaluation set may be seen in prediction time, thus we need to add date to the key. This add diversity to our trainning split.
