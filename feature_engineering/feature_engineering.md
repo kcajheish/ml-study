@@ -235,3 +235,20 @@ online vs offline
 - latency should be low for online
     - looking up attribute data from external system increases latency
     - calculating statistic before serving can computational expensive
+
+direct label for event
+- label user's behavior in event
+- e.g. log impression as well as click through to measure the effects of top search results.
+
+direct label for attribute
+- prediction that occurs for a period of time
+- e.g. use two weeks clicking data for a batch to learn effects of weekend on predictions.
+
+logs from history
+- machine learning predicts future based on things in the past.
+
+if you don't have data
+- human label data
+    - Note that human introduces error. Try to label it yourself and see if it makes sense.
+- heuristic data
+- brought data from similar problems
