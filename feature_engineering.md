@@ -146,3 +146,48 @@ the data you generate should be deterministic
 
 Problem with hash
 - Either include or exclude the data from training. Data that are included in evaluation set may be seen in prediction time, thus we need to add date to the key. This add diversity to our trainning split.
+
+# Imbalanced Data
+
+imbalanced
+- data set with skew class proportions
+
+majority class
+- data are localized in few class
+
+minority class
+- class has few dta
+
+![alt text](image.png)
+
+degree of imbalance
+- determines sampling strategy by how much data is skewed.
+
+problem with imbalance
+- In a batch, model learn from majority class and didn't make progress while gradient descends.
+
+downsampling
+- take a small subset of majority class for training
+
+upweighting
+- add weight which is equal to downsampling factor
+- example weight = original example weight * downsamping factor
+
+why upweighting and downsampling
+- save more disk space for minority class
+- model quickly converges
+- output is calibrated to reflect probability
+
+![alt text](image-1.png)
+![alt text](image-2.png)
+clustered data
+- examples group by certain attribute
+- e.g. similar news topics happen around the same time
+
+split data by time
+- it prevents overlap(skew of class) of training/testing set
+- good for classifying news
+- works for large dataset
+
+Note that domain knowledge helps to split your data
+- grouping the data in the wrong way introduces skew in dataset and provide info that is not available at serve time
