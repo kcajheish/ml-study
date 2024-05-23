@@ -290,3 +290,6 @@ generate feature vector with embedded
 - category feature which is presented as continuous value feature
     - e.g. put a category in a feature space
 - value is part of the model
+
+
+colab: [intro to modeling](https://colab.research.google.com/drive/199lv-VR9h2QRh9_kPBCKvp7ng-ZQHopC#scrollTo=CmaGHWFVGKMr)
