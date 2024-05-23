@@ -191,3 +191,28 @@ split data by time
 
 Note that domain knowledge helps to split your data
 - grouping the data in the wrong way introduces skew in dataset and provide info that is not available at serve time
+
+# Collecting Data
+
+"Garbage in, garbage out" applies to ML.
+- how to measure quality of data?
+- how much data do you need?
+
+Examples are more than training parameters.
+- It's best to train simple model with the large dataset.
+
+quality
+- reliability
+    - filter
+        - e.g. include queries from bot for spam detection
+    - noise
+        - e.g. fluctuation in thermostat
+    - label errors
+        - e.g. human labels data incorrectly.
+- feature representation
+    - handle outlier
+    - normalization
+    - extract useful feature
+- minimun skew
+    - your training set should be representative of your serving traffic.
+    - e.g. training/serving skew
