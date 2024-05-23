@@ -216,3 +216,22 @@ quality
 - minimun skew
     - your training set should be representative of your serving traffic.
     - e.g. training/serving skew
+
+join data logs
+- combine data from multiple sources
+
+type of logs
+- transactional log
+    - an event with who, when what
+- attribute data
+    - aren't tied to specific event
+    - created by aggregation of transactional logs
+    - e.g. demographic, history at a time, user churn, etc.
+- aggregate statistics
+    - create statistical attribute from multiple transactional logs
+    - e.g. average click rate on ads, frequency of user queries
+
+online vs offline
+- latency should be low for online
+    - looking up attribute data from external system increases latency
+    - calculating statistic before serving can computational expensive
