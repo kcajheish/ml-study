@@ -110,71 +110,11 @@ _________________________________________________________________
             - e.g. you see contour of the animal without background object
 
 [sample code](https://colab.research.google.com/github/google/eng-edu/blob/main/ml/pc/exercises/image_classification_part2.ipynb?utm_source=practicum-IC&utm_campaign=colab-external&utm_medium=referral&hl=en&utm_content=imageexercise2-colab#scrollTo=NKCjHegASXaA) that train CNN with dropout and augmentation
-```python
-import os
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from tensorflow.keras import layers
-from tensorflow.keras import Model
-from tensorflow.keras.optimizers import RMSprop
 
-base_dir = 'path_to_the_root_of_image_folder'
-train_dir = os.path.join(base_dir, 'train')
-validation_dir = os.path.join(base_dir, 'validation')
-
-train_datagen = ImageDataGenerator(
-    rescale=1./255,
-    rotation_range=40,
-    width_shift_range=0.2,
-    height_shift_range=0.2,
-    shear_range=0.2,
-    zoom_range=0.2,
-    horizontal_flip=True,)
-val_datagen = ImageDataGenerator(rescale=1./255)
-train_generator = train_datagen.flow_from_directory(
-        train_dir,
-        target_size=(150, 150),
-        batch_size=20,
-        class_mode='binary')
-validation_generator = val_datagen.flow_from_directory(
-        validation_dir,
-        target_size=(150, 150),
-        batch_size=20,
-        class_mode='binary')
-img_input = layers.Input(shape=(150, 150, 3))
-x = layers.Conv2D(16, 3, activation='relu')(img_input)
-x = layers.MaxPooling2D(2)(x)
-x = layers.Conv2D(32, 3, activation='relu')(x)
-x = layers.MaxPooling2D(2)(x)
-x = layers.Convolution2D(64, 3, activation='relu')(x)
-x = layers.MaxPooling2D(2)(x)
-x = layers.Flatten()(x)
-x = layers.Dense(512, activation='relu')(x)
-x = layers.Dropout(0.5)(x)
-output = layers.Dense(1, activation='sigmoid')(x)
-model = Model(img_input, output)
-model.compile(loss='binary_crossentropy',
-              optimizer=RMSprop(learning_rate=0.001),
-              metrics=['acc'])
-history = model.fit_generator(
-      train_generator,
-      steps_per_epoch=100,
-      epochs=30,
-      validation_data=validation_generator,
-      validation_steps=50,
-      verbose=2)
-acc = history.history['acc']
-val_acc = history.history['val_acc']
-loss = history.history['loss']
-val_loss = history.history['val_loss']
-epochs = range(len(acc))
-plt.plot(epochs, acc)
-plt.plot(epochs, val_acc)
-plt.title('Training and validation accuracy')
-plt.figure()
-plt.plot(epochs, loss)
-plt.plot(epochs, val_loss)
-plt.title('Training and validation loss')
-```
+colab:
+[part 1](https://colab.research.google.com/drive/1HcLcLVaH9CZEk-oK_kYo1y__qUQYNvwz?hl=en)
+[part 2](https://colab.research.google.com/drive/1FVeEUnmiwALQzQNk4BAo6RI4sb6hzNwG?hl=en)
+[part 3](https://colab.research.google.com/drive/1Cdcss__TjAofVvXORzttFg96UNGuvLs9?hl=en)
 
 Check out [Kera image data loading](https://keras.io/api/data_loading/image/) to see how folder should be structured and how image is loaded
 
