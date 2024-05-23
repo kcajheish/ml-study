@@ -252,3 +252,41 @@ if you don't have data
     - Note that human introduces error. Try to label it yourself and see if it makes sense.
 - heuristic data
 - brought data from similar problems
+
+categorical feature
+- discrete values where you can't extract meaning by comparing them
+    - e.g. breeds of dogs
+- use integer over numerical for category
+- ways
+    - unique feature for each category
+
+volcabulary
+- a value(index number) that maps to category
+- use feature vector to present category in example
+    - e.g.
+        - friday feature vector = [0,0,0,0,1,0,0]
+        - sparse vector  [4]
+            - this saves spaces.
+
+out of volca(OOV)
+- for feature that can't be categorized
+    - e.g. an eccentric color of a car
+
+hash for category
+- pro
+    - data that changes constantly
+    - less manual efforts to categorize data
+- con
+    - two examples don't share anything but are put in the same category due to collision
+
+hybrid of hash and volcabular
+- apply hash to OOV and put it in hash buckets
+
+
+![alt text](image-3.png)
+![alt text](image-4.png)
+
+generate feature vector with embedded
+- category feature which is presented as continuous value feature
+    - e.g. put a category in a feature space
+- value is part of the model
